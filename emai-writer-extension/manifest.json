@@ -1,0 +1,26 @@
+{
+  "name": "Email Writer Assistant",
+  "description": "Email Writer Powered by AI",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*",
+    "*//mail.google.com/*",
+    "http://localhost:8080/*"
+  ],
+  "action": {
+    "default_title": "Email Writer Assistant",
+    "default_popup": "hello.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://mail.google.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ]
+}
